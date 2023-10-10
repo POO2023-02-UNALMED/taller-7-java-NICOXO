@@ -5,7 +5,7 @@ public class Periodico extends Escrito {
     private String primicia;
     private String interpretacion;
 
-    public Periodico(String origen, String titulo, String autor, int paginas, String fecha, String primicia, String interpretacion) {
+    public Periodico(String origen, String titulo, String autor, int paginas, String resumen, String fecha, String primicia, String interpretacion) {
         super(origen, titulo, autor, paginas);
         this.fecha = fecha;
         this.primicia = primicia;
@@ -43,8 +43,7 @@ public class Periodico extends Escrito {
     public String toString() {
         return super.resumen() + "\n" + fecha + "\n" + primicia;
     }
-    @Override
     public String interpretacion() {
-        return this.interpretacion;
+        return interpretacion;
     }
 }
