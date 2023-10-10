@@ -36,7 +36,6 @@ public class Libro extends Escrito {
     public void setEdicion(String edicion) {
         this.edicion = edicion;
     }
-
     @Override
     public int palabrasTotales(int palabrasPagina) {
         return getPaginas() * palabrasPagina * 2;
