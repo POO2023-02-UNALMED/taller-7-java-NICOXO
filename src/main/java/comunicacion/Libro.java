@@ -13,12 +13,6 @@ public class Libro extends Escrito {
         this.edicion = edicion;
         this.interpretacion = interpretacion;
     }
-    public String getInterpretacion() {
-    	return interpretacion;
-    }
-    public void setInterpretacion(String interpretacion) {
-        this.interpretacion = interpretacion;
-    }
     public String getCo_autor() {
         return co_autor;
     }
@@ -54,6 +48,6 @@ public class Libro extends Escrito {
     }
     @Override
     public String interpretacion() {
-    	return getInterpretacion();
+        return this.interpretacion;
     }
 }
