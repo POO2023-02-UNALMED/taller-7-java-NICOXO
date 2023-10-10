@@ -3,7 +3,7 @@ package comunicacion;
 public class Alfabeto extends Pictograma {
     private String[] letras;
 
-    public Alfabeto(String[] letras, String interpretacion) {
+    public Alfabeto( String interpretacion,String[] letras) {
         super(interpretacion);
         this.letras = letras;
     }
