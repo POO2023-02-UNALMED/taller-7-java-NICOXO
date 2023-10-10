@@ -36,7 +36,7 @@ public class Periodico extends Escrito {
 
     @Override
     int palabrasTotales(int palabrasPagina) {
-        return getPaginas() * palabrasPagina * 10; // Factor 10 para periódicos
+        return getPaginas() * palabrasPagina * 10; 
     }
 
     @Override
