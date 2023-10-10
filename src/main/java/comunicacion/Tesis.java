@@ -1,21 +1,21 @@
 package comunicacion;
 
 public class Tesis extends Escrito {
-
     private String idea;
     private String[] argumentos;
     private String conclusion;
     private String referencias;
     private String interpretacion;
 
-    public Tesis(String origen, String titulo, String autor, int paginas, String resumen, String idea, String[] argumentos, String conclusion, String referencias, String interpretacion) {
+    public Tesis(String origen,String titulo, String autor, int paginas, String idea, String[] argumentos,String conclusion,String referencias,String interpretacion){
         super(origen, titulo, autor, paginas);
-        this.idea = idea;
-        this.argumentos = argumentos;
-        this.conclusion = conclusion;
-        this.referencias = referencias;
-        this.interpretacion = interpretacion;
+        this.idea=idea;
+        this.argumentos=argumentos;
+        this.conclusion=conclusion;
+        this.referencias=referencias;
+        this.interpretacion=interpretacion;
     }
+
 
     public String getIdea() {
         return idea;
@@ -28,6 +28,7 @@ public class Tesis extends Escrito {
     public String[] getArgumentos() {
         return argumentos;
     }
+
 
     public void setArgumentos(String[] argumentos) {
         this.argumentos = argumentos;
@@ -57,24 +58,21 @@ public class Tesis extends Escrito {
         this.interpretacion = interpretacion;
     }
 
-    @Override
-    int palabrasTotales(int palabrasPagina) {
-        return getPaginas() * palabrasPagina;
+
+    public int palabrasTotales(int palabrasPagina){
+        return palabrasPagina*5*super.getPaginas();
+
     }
 
-    @Override
-    public String toString() {
-        StringBuilder argumentosStr = new StringBuilder();
-        for (String argumento : argumentos) {
-            argumentosStr.append("[").append(argumento).append("] ");
-        }
-
-        return super.resumen() + "\n" + idea + "\n" + argumentosStr.toString() + "\n" + conclusion + "\n" + referencias;
-    }
-
-
-    @Override
-    String interpretacion() {
+    public String interpretacion(){
         return interpretacion;
+
+    }
+
+    public String toString(){
+    
+        String frase=super.getOrigen() + "\n" + super.getTitulo() + "\n" + super.getAutor() + "\n" + super.getPaginas() + "\n" + this.idea+ "\n" + this.argumentos.length + "\n" + this.conclusion + "\n" + this.referencias;
+        return frase;
+
     }
 }
