@@ -13,6 +13,7 @@ public class Tesis extends Escrito {
         this.conclusion = conclusion;
         this.referencias = referencias;
     }
+
     public String getIdea() {
         return idea;
     }
@@ -44,13 +45,14 @@ public class Tesis extends Escrito {
     public void setReferencias(String referencias) {
         this.referencias = referencias;
     }
+
     @Override
     int palabrasTotales(int palabrasPagina) {
-        return this.getPaginas() * palabrasPagina * 5; 
+        return this.getPaginas() * palabrasPagina * 5;
     }
 
     @Override
-    String interpretacion() {
+    public String interpretacion() {
         return idea;
     }
 

@@ -7,6 +7,7 @@ public class Fabula extends Escrito {
         super(origen, titulo, autor, paginas);
         this.ensenanza = ensenanza;
     }
+
     public String getEnsenanza() {
         return ensenanza;
     }
@@ -21,7 +22,7 @@ public class Fabula extends Escrito {
     }
 
     @Override
-    String interpretacion() {
+    public String interpretacion() {
         return ensenanza;
     }
 

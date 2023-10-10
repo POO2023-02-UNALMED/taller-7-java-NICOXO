@@ -11,6 +11,7 @@ public class Libro extends Escrito {
         this.editorial = editorial;
         this.edicion = edicion;
     }
+
     public String getCo_autor() {
         return co_autor;
     }
@@ -34,13 +35,14 @@ public class Libro extends Escrito {
     public void setEdicion(String edicion) {
         this.edicion = edicion;
     }
+
     @Override
     int palabrasTotales(int palabrasPagina) {
-        return this.getPaginas() * palabrasPagina * 2; 
+        return this.getPaginas() * palabrasPagina * 2;
     }
 
     @Override
-    String interpretacion() {
+    public String interpretacion() {
         return edicion;
     }
 

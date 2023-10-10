@@ -9,6 +9,7 @@ public class Periodico extends Escrito {
         this.fecha = fecha;
         this.primicia = primicia;
     }
+
     public String getFecha() {
         return fecha;
     }
@@ -27,11 +28,11 @@ public class Periodico extends Escrito {
 
     @Override
     int palabrasTotales(int palabrasPagina) {
-        return this.getPaginas() * palabrasPagina * 10; 
+        return this.getPaginas() * palabrasPagina * 10;
     }
 
     @Override
-    String interpretacion() {
+    public String interpretacion() {
         return primicia;
     }
 
