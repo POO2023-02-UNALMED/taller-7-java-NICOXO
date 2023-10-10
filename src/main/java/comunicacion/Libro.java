@@ -1,15 +1,18 @@
 package comunicacion;
 
 public class Libro extends Escrito {
+
     private String co_autor;
     private String editorial;
     private String edicion;
+    private String interpretacion;
 
-    public Libro(String origen, String titulo, String autor, int paginas, String resumen, String co_autor, String editorial, String edicion) {
+    public Libro(String origen, String titulo, String autor, int paginas, String resumen, String co_autor, String editorial, String edicion, String interpretacion) {
         super(origen, titulo, autor, paginas);
         this.co_autor = co_autor;
         this.editorial = editorial;
         this.edicion = edicion;
+        this.interpretacion = interpretacion;
     }
 
     public String getCo_autor() {
@@ -36,18 +39,26 @@ public class Libro extends Escrito {
         this.edicion = edicion;
     }
 
-    @Override
-    int palabrasTotales(int palabrasPagina) {
-        return this.getPaginas() * palabrasPagina * 2;
+    public String getInterpretacion() {
+        return interpretacion;
+    }
+
+    public void setInterpretacion(String interpretacion) {
+        this.interpretacion = interpretacion;
     }
 
     @Override
-    public String interpretacion() {
-        return edicion;
+    int palabrasTotales(int palabrasPagina) {
+        return getPaginas() * palabrasPagina;
     }
 
     @Override
     public String toString() {
-        return super.resumen() + "\n" + this.co_autor + "\n" + this.editorial + "\n" + this.edicion;
+        return super.resumen() + "\n" + co_autor + "\n" + editorial + "\n" + edicion;
+    }
+
+    @Override
+    String interpretacion() {
+        return interpretacion;
     }
 }

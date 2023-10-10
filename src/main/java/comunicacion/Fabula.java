@@ -1,6 +1,7 @@
 package comunicacion;
 
 public class Fabula extends Escrito {
+
     private String ensenanza;
 
     public Fabula(String origen, String titulo, String autor, int paginas, String resumen, String ensenanza) {
@@ -18,16 +19,16 @@ public class Fabula extends Escrito {
 
     @Override
     int palabrasTotales(int palabrasPagina) {
-        return this.getPaginas() * palabrasPagina;
-    }
-
-    @Override
-    public String interpretacion() {
-        return ensenanza;
+        return getPaginas() * palabrasPagina;
     }
 
     @Override
     public String toString() {
-        return super.resumen();
+        return super.resumen() + "\n" + ensenanza;
+    }
+
+    @Override
+    String interpretacion() {
+        return getEnsenanza();
     }
 }

@@ -1,17 +1,20 @@
 package comunicacion;
 
 public class Tesis extends Escrito {
+
     private String idea;
     private String[] argumentos;
     private String conclusion;
     private String referencias;
+    private String interpretacion;
 
-    public Tesis(String origen, String titulo, String autor, int paginas, String resumen, String idea, String[] argumentos, String conclusion, String referencias) {
+    public Tesis(String origen, String titulo, String autor, int paginas, String resumen, String idea, String[] argumentos, String conclusion, String referencias, String interpretacion) {
         super(origen, titulo, autor, paginas);
         this.idea = idea;
         this.argumentos = argumentos;
         this.conclusion = conclusion;
         this.referencias = referencias;
+        this.interpretacion = interpretacion;
     }
 
     public String getIdea() {
@@ -46,18 +49,32 @@ public class Tesis extends Escrito {
         this.referencias = referencias;
     }
 
-    @Override
-    int palabrasTotales(int palabrasPagina) {
-        return this.getPaginas() * palabrasPagina * 5;
+    public String getInterpretacion() {
+        return interpretacion;
+    }
+
+    public void setInterpretacion(String interpretacion) {
+        this.interpretacion = interpretacion;
     }
 
     @Override
-    public String interpretacion() {
-        return idea;
+    int palabrasTotales(int palabrasPagina) {
+        return getPaginas() * palabrasPagina;
     }
 
     @Override
     public String toString() {
-        return super.resumen() + "\n" + this.idea + "\n" + String.join(", ", argumentos) + "\n" + this.conclusion + "\n" + this.referencias;
+        StringBuilder argumentosStr = new StringBuilder();
+        for (String argumento : argumentos) {
+            argumentosStr.append("[").append(argumento).append("] ");
+        }
+
+        return super.resumen() + "\n" + idea + "\n" + argumentosStr.toString() + "\n" + conclusion + "\n" + referencias;
+    }
+
+
+    @Override
+    String interpretacion() {
+        return interpretacion;
     }
 }
