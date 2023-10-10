@@ -5,23 +5,14 @@ public class Tesis extends Escrito {
     private String[] argumentos;
     private String conclusion;
     private String referencias;
-    private String interpretacion;
 
-    public Tesis(String origen, String titulo, String autor, int paginas, String resumen, String idea, String[] argumentos, String conclusion, String referencias, String interpretacion) {
+    public Tesis(String origen, String titulo, String autor, int paginas, String resumen, String idea, String[] argumentos, String conclusion, String referencias) {
         super(origen, titulo, autor, paginas);
         this.idea = idea;
         this.argumentos = argumentos;
         this.conclusion = conclusion;
         this.referencias = referencias;
-        this.interpretacion = interpretacion;
     }
-    public String getInterpretacion() {
-    	return interpretacion;
-    }
-    public void setInterpretacion(String interpretacion) {
-    	this.interpretacion = interpretacion;
-    }
-
     public String getIdea() {
         return idea;
     }
@@ -53,21 +44,18 @@ public class Tesis extends Escrito {
     public void setReferencias(String referencias) {
         this.referencias = referencias;
     }
+    @Override
+    int palabrasTotales(int palabrasPagina) {
+        return this.getPaginas() * palabrasPagina * 5; 
+    }
 
     @Override
-    public int palabrasTotales(int palabrasPagina) {
-        return getPaginas() * palabrasPagina * 5; 
+    String interpretacion() {
+        return idea;
     }
 
     @Override
     public String toString() {
-        StringBuilder argumentosStr = new StringBuilder();
-        for (String argumento : argumentos) {
-            argumentosStr.append(argumento).append(", ");
-        }
-        return super.resumen() + "\n" + idea + "\n" + argumentosStr.substring(0, argumentosStr.length() - 2) + "\n" + conclusion + "\n" + referencias;
-    }
-    public String interpretacion() {
-        return interpretacion;
+        return super.resumen() + "\n" + this.idea + "\n" + String.join(", ", argumentos) + "\n" + this.conclusion + "\n" + this.referencias;
     }
 }
